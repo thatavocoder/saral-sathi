@@ -9,6 +9,7 @@
   --foreground: #616161;
   --card: #ffffff;
   --card-foreground: #404040;
+  --card-foreground-dark-grey: #212121;
   --popover: #ffffff;
   --popover-foreground: #252525;
   --primary: #7f38e9;
@@ -20,7 +21,7 @@
   --accent: #f7f7f7;
   --accent-foreground: #343434;
   --destructive: #e5484d;
-  --border: #e8e8e8;
+  --border: #e0e0e0;
   --input: #e8e8e8;
   --ring: #b5b5b5;
   --chart-1: #f48a4c;
@@ -38,6 +39,7 @@
   --sidebar-ring: #b5b5b5;
   --select-foreground: #212121;
   --select-border: #e0e0e0;
+  --primary-border-light: #dfcdfa;
 }
 
 @theme inline {
@@ -49,6 +51,7 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+  --color-card-foreground-dark-grey: var(--card-foreground-dark-grey);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
@@ -78,6 +81,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-select-foreground: var(--select-foreground);
   --color-select-border: var(--select-border);
+  --color-primary-border-light: var(--primary-border-light);
 }
 
 @layer base {
