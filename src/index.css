@@ -4,19 +4,19 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.5rem;
   --background: #fafafa;
   --foreground: #252525;
   --card: #ffffff;
-  --card-foreground: #252525;
+  --card-foreground: #404040;
   --popover: #ffffff;
   --popover-foreground: #252525;
-  --primary: #343434;
+  --primary: #7f38e9;
   --primary-foreground: #fbfbfb;
   --secondary: #f7f7f7;
   --secondary-foreground: #343434;
   --muted: #f7f7f7;
-  --muted-foreground: #8e8e8e;
+  --muted-foreground: #616161;
   --accent: #f7f7f7;
   --accent-foreground: #343434;
   --destructive: #e5484d;
@@ -115,6 +115,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-['Poppins'];
   }
 }
