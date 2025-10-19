@@ -8,12 +8,12 @@ interface MetricBoxProps {
   bgClassName?: string
 }
 
-export const MetricBox: React.FC<MetricBoxProps> = ({
+export const MetricBox = ({
   icon,
   value,
   label,
   bgClassName = 'bg-destructive-light',
-}) => {
+}: MetricBoxProps) => {
   return (
     <div className="border rounded-lg p-3.75 flex items-center gap-2 pr-6">
       <div

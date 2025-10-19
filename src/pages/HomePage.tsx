@@ -5,14 +5,19 @@ import { MyCommissionCard } from '@/components/home/MyCommissionCard'
 
 export const HomePage = () => {
   return (
-    <div className="flex min-h-[calc(100vh-91px)] items-center justify-center gap-6 py-6">
-      <div className="flex gap-6">
-        <div className="flex flex-col gap-6">
+    <div className="min-h-[calc(100vh-91px)] p-4 md:p-6">
+      <div className="flex flex-col md:flex-row gap-6 md:items-center md:justify-center">
+        <div className="flex w-full flex-col gap-6 md:w-max">
+          <div className="block md:hidden">
+            <MetricsCard />
+          </div>
           <MyCommissionCard />
           <LinksAndCodesCard />
         </div>
-        <div className="flex flex-shrink-0 flex-col gap-6 justify-between">
-          <MetricsCard />
+        <div className="flex w-full flex-col gap-6 md:w-max">
+          <div className="hidden md:block">
+            <MetricsCard />
+          </div>
           <PotentialEarningsCard />
         </div>
       </div>
