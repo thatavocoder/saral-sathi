@@ -1,10 +1,31 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { useState } from 'react'
 import chipImg from '@/assets/chip.png'
 import logoWhiteImg from '@/assets/logo-white.png'
 import TIcon from '@/assets/icons/t-icon.svg?react'
 import EditIcon from '@/assets/icons/edit.svg?react'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
 
 export const MyCommissionCard = () => {
+  const [isEditing, setIsEditing] = useState(false)
+  const [email, setEmail] = useState('N/A')
+  const [inputValue, setInputValue] = useState(email)
+
+  const handleEdit = () => {
+    setInputValue(email)
+    setIsEditing(true)
+  }
+
+  const handleSave = () => {
+    setEmail(inputValue)
+    setIsEditing(false)
+  }
+
+  const handleCancel = () => {
+    setIsEditing(false)
+  }
+
   return (
     <Card>
       <CardHeader className="gap-0">
@@ -43,14 +64,43 @@ export const MyCommissionCard = () => {
       </CardContent>
       <CardFooter>
         <div className="flex border rounded p-2 w-full justify-between items-center">
-          <div className="flex items-center gap-2">
-            <TIcon className="h-5 w-5" />
-            <span className="text-base font-normal text-foreground">Payment Email: </span>
-            <span className="text-base font-normal text-card-foreground-dark-grey">N/A</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <EditIcon className="h-5 w-5 text-primary" />
-          </div>
+          {isEditing ? (
+            <div className="flex items-center gap-2 w-full">
+              <div className="flex items-center gap-2 flex-grow">
+                <TIcon className="h-5 w-5" />
+                <span className="text-base font-normal text-foreground whitespace-nowrap">
+                  Payment Email:{' '}
+                </span>
+                <Input
+                  type="email"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  className="h-9"
+                />
+              </div>
+              <div className="flex items-center gap-2">
+                <Button onClick={handleSave} size="sm">
+                  Save
+                </Button>
+                <Button onClick={handleCancel} size="sm" variant="outline">
+                  Cancel
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="flex items-center gap-2">
+                <TIcon className="h-5 w-5" />
+                <span className="text-base font-normal text-foreground">Payment Email: </span>
+                <span className="text-base font-normal text-card-foreground-dark-grey">
+                  {email}
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <EditIcon className="h-5 w-5 text-primary cursor-pointer" onClick={handleEdit} />
+              </div>
+            </>
+          )}
         </div>
       </CardFooter>
     </Card>

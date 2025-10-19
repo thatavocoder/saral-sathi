@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom'
-import { useState } from 'react'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { setTimeRange } from '@/store/slices/filterSlice'
+import { TimeRange } from '@/types/filters'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import HomeIcon from '../assets/icons/home.svg?react'
 import AlbumIcon from '../assets/icons/album.svg?react'
@@ -27,8 +29,21 @@ const navLinks = [
   { to: '/profile', label: 'Profile', icon: ProfileIcon },
 ]
 
+const timeRangeOptions = [
+  { value: TimeRange.AllTime, label: 'All time' },
+  { value: TimeRange.Last7Days, label: 'Last 7 days' },
+  { value: TimeRange.Last30Days, label: 'Last 30 days' },
+  { value: TimeRange.Last90Days, label: 'Last 90 days' },
+]
+
 export const Navbar = () => {
-  const [selectedValue, setSelectedValue] = useState('all-time')
+  const dispatch = useAppDispatch()
+  const selectedValue = useAppSelector((state) => state.filters.timeRange)
+
+  const handleTimeRangeChange = (value: string) => {
+    dispatch(setTimeRange(value as TimeRange))
+  }
+
   return (
     <header className="flex items-center justify-between py-2.5 px-6 bg-white border-b">
       <div className="flex items-center gap-2">
@@ -51,7 +66,7 @@ export const Navbar = () => {
         ))}
       </nav>
       <div className="flex items-center gap-6">
-        <Select value={selectedValue} onValueChange={setSelectedValue}>
+        <Select value={selectedValue} onValueChange={handleTimeRangeChange}>
           <SelectTrigger className="font-medium data-[placeholder]:text-select-foreground [&_svg:not([class*='text-'])]:text-select-foreground border-select-border rounded-sm px-2.5 data-[size=default]:h-10">
             <div className="flex items-center gap-1 text-select-foreground">
               <CalendarIcon className="h-4 w-4 " />
@@ -60,10 +75,11 @@ export const Navbar = () => {
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectItem value="all-time">All time</SelectItem>
-              <SelectItem value="last-7-days">Last 7 days</SelectItem>
-              <SelectItem value="last-30-days">Last 30 days</SelectItem>
-              <SelectItem value="last-90-days">Last 90 days</SelectItem>
+              {timeRangeOptions.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
             </SelectGroup>
           </SelectContent>
         </Select>
