@@ -29,7 +29,9 @@ export function LoginPage() {
     <div className="flex justify-center items-center h-screen">
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle className="text-card-foreground-dark-grey">Login to your account</CardTitle>
+          <CardTitle className="text-card-foreground-dark-grey text-xl">
+            Login to your account
+          </CardTitle>
           <CardDescription>
             Enter your email and password below to login to your account
           </CardDescription>

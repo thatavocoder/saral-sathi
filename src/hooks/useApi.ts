@@ -30,10 +30,12 @@ export const useApi = (): ApiHook => {
       body: JSON.stringify(data),
     })
 
-    const jsonResponse: ApiResponse<T> = await response.json()
+    const jsonResponse = await response.json()
 
-    if (!response.ok || jsonResponse.status !== 'success') {
-      throw new Error(jsonResponse.debugMessage || 'Network response was not ok')
+    if (!response.ok || (jsonResponse.status && jsonResponse.status !== 'success')) {
+      const errorMessage =
+        (jsonResponse as any).message || jsonResponse.debugMessage || 'Network response was not ok'
+      throw new Error(errorMessage)
     }
 
     return jsonResponse.data
