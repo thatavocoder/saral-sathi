@@ -12,6 +12,12 @@ import ProfileIcon from '../assets/icons/profile.svg?react'
 import CalendarIcon from '../assets/icons/calendar.svg?react'
 import BellIcon from '../assets/icons/bell.svg?react'
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from './ui/dropdown-menu'
+import {
   Select,
   SelectContent,
   SelectGroup,
@@ -19,6 +25,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from './ui/select'
+import { logout } from '@/store/slices/authSlice'
 
 const navLinks = [
   { to: '/', label: 'Home', icon: HomeIcon },
@@ -42,6 +49,10 @@ export const Navbar = () => {
 
   const handleTimeRangeChange = (value: string) => {
     dispatch(setTimeRange(value as TimeRange))
+  }
+
+  const handleLogout = () => {
+    dispatch(logout())
   }
 
   return (
@@ -84,10 +95,23 @@ export const Navbar = () => {
           </SelectContent>
         </Select>
         <BellIcon className="w-5 h-5" />
-        <Avatar className="size-9">
-          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Avatar className="size-9 cursor-pointer">
+              <AvatarImage src={'/src/assets/profile-pic.png'} alt="@shadcn" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem
+              onClick={handleLogout}
+              variant="destructive"
+              className="cursor-pointer"
+            >
+              Logout
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </header>
   )
