@@ -37,7 +37,7 @@ const metricsData = [
 
 export const MetricsCard = () => {
   return (
-    <Card>
+    <Card className='bg-[url("@/assets/bg-pattern.png")] bg-contain bg-top bg-no-repeat'>
       <CardContent>
         <div className="flex flex-col items-center gap-6">
           <div className="flex flex-col items-center gap-2 pt-4.5">
