@@ -6,4 +6,5 @@ export const ROUTE_PATHS = {
   UPLOADS: '/uploads',
   PAYMENTS: '/payments',
   PROFILE: '/profile',
+  NOT_FOUND: '/404',
 }

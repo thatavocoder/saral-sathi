@@ -10,6 +10,7 @@ import { AssetsPage } from '../pages/AssetsPage'
 import { UploadsPage } from '../pages/UploadsPage'
 import { PaymentsPage } from '../pages/PaymentsPage'
 import { ProfilePage } from '../pages/ProfilePage'
+import { NotFoundPage } from '../pages/NotFoundPage'
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +43,14 @@ export const router = createBrowserRouter([
             path: ROUTE_PATHS.PROFILE,
             element: <ProfilePage />,
           },
+          {
+            path: ROUTE_PATHS.NOT_FOUND,
+            element: <NotFoundPage />,
+          },
+          {
+            path: '*',
+            element: <NotFoundPage />,
+          },
         ],
       },
     ],
@@ -52,6 +61,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTE_PATHS.LOGIN,
         element: <LoginPage />,
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />,
       },
     ],
   },
