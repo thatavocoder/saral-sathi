@@ -10,7 +10,7 @@ export const PotentialEarningsCard = () => {
 
   const revenueValue = parseFloat(revenue.replace('$', ''))
   const earningsPerPost = posts > 0 ? revenueValue / posts : 0
-  const potentialEarnings = (sliderValue * earningsPerPost).toFixed(2)
+  const potentialEarnings = Math.round(sliderValue * earningsPerPost)
 
   return (
     <Card className="gap-0 py-0">
