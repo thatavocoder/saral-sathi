@@ -5,10 +5,10 @@ import { MobileNavbar } from '../components/MobileNavbar'
 export const MainLayout = () => {
   return (
     <div>
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <Navbar />
       </div>
-      <div className="block md:hidden">
+      <div className="block lg:hidden">
         <MobileNavbar />
       </div>
       <main>

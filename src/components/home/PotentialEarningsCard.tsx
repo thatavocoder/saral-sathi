@@ -14,28 +14,28 @@ export const PotentialEarningsCard = () => {
 
   return (
     <Card className="gap-0 md:gap-0 py-0 md:py-0">
-      <CardContent className="p-6 md:p-6 flex flex-col gap-7.5">
+      <CardContent className="p-4 md:p-6 flex flex-col gap-4 md:gap-7.5">
         <div className="flex gap-2 items-start justify-between">
           <div className="flex flex-col gap-1">
-            <span className="text-lg font-medium flex items-center gap-2 text-card-foreground">
-              Potential Earnings <InfoIcon className="h-4 w-4" />
+            <span className="text-base md:text-lg font-medium flex items-center gap-2 text-card-foreground">
+              Potential Earnings <InfoIcon className="h-3 w-3 md:h-4 md:w-4" />
             </span>
-            <span className="text-foreground text-sm font-normal">
+            <span className="text-foreground text-xs md:text-sm font-normal">
               How much you might earn with more posts!
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-(length:--font-xl) font-medium text-disabled w-17 text-center border-b">
+            <span className="text-base md:text-(length:--font-xl) font-medium text-disabled w-12 md:w-17 text-center border-b">
               ${potentialEarnings}
             </span>
           </div>
         </div>
         <div className="flex flex-col gap-3">
           <div className="flex justify-between">
-            <span className="text-sm text-foreground font-medium">
+            <span className="text-xs md:text-sm text-foreground font-medium">
               {sliderValue} Post{sliderValue > 1 && 's'}
             </span>
-            <span className="text-sm text-foreground font-medium">15 Posts</span>
+            <span className="text-xs md:text-sm text-foreground font-medium">15 Posts</span>
           </div>
           <Slider
             value={[sliderValue]}
