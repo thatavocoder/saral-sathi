@@ -4,6 +4,8 @@ import chipImg from '@/assets/chip.png'
 import logoWhiteImg from '@/assets/logo-white.png'
 import TIcon from '@/assets/icons/t-icon.svg?react'
 import EditIcon from '@/assets/icons/edit.svg?react'
+import CheckIcon from '@/assets/icons/check.svg?react'
+import XIcon from '@/assets/icons/x.svg?react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 
@@ -63,11 +65,13 @@ export const MyCommissionCard = () => {
         </Card>
       </CardContent>
       <CardFooter>
-        <div className="flex border rounded p-2 w-full justify-between items-center">
+        <div
+          className={`flex border rounded ${isEditing ? 'p-1' : 'p-2'} w-full justify-between items-center`}
+        >
           {isEditing ? (
-            <div className="flex items-center gap-2 w-full">
-              <div className="flex items-center gap-2 flex-grow">
-                <TIcon className="h-5 w-5" />
+            <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1">
+                <TIcon className="h-5 w-5 flex-shrink-0" />
                 <span className="text-base font-normal text-foreground whitespace-nowrap">
                   Payment Email:{' '}
                 </span>
@@ -75,15 +79,18 @@ export const MyCommissionCard = () => {
                   type="email"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  className="h-9"
+                  name="payment-email"
+                  className="h-8"
                 />
               </div>
-              <div className="flex items-center gap-2">
-                <Button onClick={handleSave} size="sm">
-                  Save
+              <div className="flex items-center gap-1">
+                <Button onClick={handleSave} className="h-8" variant="ghost">
+                  <span className="sr-only">Save</span>
+                  <CheckIcon className="h-4 w-4 text-primary" />
                 </Button>
-                <Button onClick={handleCancel} size="sm" variant="outline">
-                  Cancel
+                <Button onClick={handleCancel} className="h-8" variant="ghost">
+                  <span className="sr-only">Cancel</span>
+                  <XIcon className="h-4 w-4 text-destructive" />
                 </Button>
               </div>
             </div>
