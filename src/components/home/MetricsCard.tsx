@@ -40,7 +40,7 @@ export const MetricsCard = () => {
     <Card className='bg-[url("@/assets/bg-pattern.png")] bg-contain bg-top bg-no-repeat'>
       <CardContent>
         <div className="flex flex-col items-center gap-6">
-          <div className="flex flex-col items-center gap-2 pt-4.5">
+          <div className="flex flex-col items-center gap-2 pt-3">
             <div className="rounded-full h-31 w-31 bg-grey-300">
               <img src={avatarImg} alt="avatar" className="h-full w-full object-cover" />
             </div>

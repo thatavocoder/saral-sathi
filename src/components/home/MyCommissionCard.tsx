@@ -39,7 +39,7 @@ export const MyCommissionCard = () => {
       <CardContent className="flex flex-col gap-4 items-center justify-start">
         <Card className="bg-[url('@/assets/card-bg.png')] bg-cover bg-center bg-no-repeat rounded-2xl w-fit p-5">
           <CardContent className="px-0">
-            <div className="flex flex-col gap-16">
+            <div className="flex flex-col gap-13.5">
               <div className="flex gap-37 items-start">
                 <div className="flex flex-col gap-1">
                   <span className="text-sm font-normal gap-2 text-commission-card-foreground">
