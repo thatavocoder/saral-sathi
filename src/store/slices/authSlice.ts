@@ -16,7 +16,7 @@ interface AuthState {
 const initialState: AuthState = {
   token: sessionStorage.getItem(TOKEN_KEY),
   isAuthenticated: !!sessionStorage.getItem(TOKEN_KEY),
-  email: 'jennelsonfitness@gmail.com',
+  email: sessionStorage.getItem(EMAIL_KEY) || 'jennelsonfitness@gmail.com',
   paymentEmail: sessionStorage.getItem(PAYMENT_EMAIL_KEY),
   couponCode: sessionStorage.getItem(COUPON_CODE_KEY) || 'KIMAYA10',
 }

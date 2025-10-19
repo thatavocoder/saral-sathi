@@ -12,7 +12,7 @@ export const useLogin = () => {
     mutationFn: (credentials: LoginCredentials) =>
       post<LoginResponse, LoginCredentials>('auth/login', credentials),
     onSuccess: (data) => {
-      dispatch(login(data.token))
+      dispatch(login({ token: data.token, email: 'jennelsonfitness@gmail.com' }))
     },
   })
 }
