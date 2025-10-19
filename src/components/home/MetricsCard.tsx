@@ -15,38 +15,39 @@ import XIcon from '@/assets/icons/x.svg?react'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { setEmail } from '@/store/slices/authSlice'
 
-const metricsData = [
-  {
-    icon: <PeopleIcon className="h-6 w-6 text-destructive" />,
-    value: 416,
-    label: 'Visitors',
-    bgClassName: 'bg-destructive-light',
-  },
-  {
-    icon: <GalleryIcon className="h-6 w-6 text-info" />,
-    value: 16,
-    label: 'Posts',
-    bgClassName: 'bg-info-light',
-  },
-  {
-    icon: <DollarIcon className="h-6 w-6 text-warning" />,
-    value: '$416',
-    label: 'Revenue',
-    bgClassName: 'bg-warning-light',
-  },
-  {
-    icon: <BagHeartIcon className="h-6 w-6 text-yellow-500" />,
-    value: 46,
-    label: 'Orders',
-    bgClassName: 'bg-yellow-50',
-  },
-]
-
 export const MetricsCard = () => {
   const dispatch = useAppDispatch()
   const email = useAppSelector((state) => state.auth.email)
+  const metrics = useAppSelector((state) => state.metrics)
   const [isEditing, setIsEditing] = useState(false)
   const [inputValue, setInputValue] = useState(email || '')
+
+  const metricsData = [
+    {
+      icon: <PeopleIcon className="h-6 w-6 text-destructive" />,
+      value: metrics.visitors,
+      label: 'Visitors',
+      bgClassName: 'bg-destructive-light',
+    },
+    {
+      icon: <GalleryIcon className="h-6 w-6 text-info" />,
+      value: metrics.posts,
+      label: 'Posts',
+      bgClassName: 'bg-info-light',
+    },
+    {
+      icon: <DollarIcon className="h-6 w-6 text-warning" />,
+      value: metrics.revenue,
+      label: 'Revenue',
+      bgClassName: 'bg-warning-light',
+    },
+    {
+      icon: <BagHeartIcon className="h-6 w-6 text-yellow-500" />,
+      value: metrics.orders,
+      label: 'Orders',
+      bgClassName: 'bg-yellow-50',
+    },
+  ]
 
   const handleEdit = () => {
     setInputValue(email || '')
