@@ -67,9 +67,9 @@ export const MetricsCard = () => {
   return (
     <Card className='bg-[url("@/assets/bg-pattern.png")] bg-contain bg-top bg-no-repeat'>
       <CardContent>
-        <div className="flex flex-col items-center gap-6">
-          <div className="flex flex-col items-center justify-center gap-2 pt-3 w-full">
-            <div className="rounded-full h-31 w-31 bg-grey-300">
+        <div className="flex flex-col items-center gap-4 md:gap-6">
+          <div className="flex flex-col items-center justify-center gap-1 md:pt-3 w-full">
+            <div className="rounded-full h-23 md:h-31 w-23 md:w-31 bg-grey-300">
               <img src={avatarImg} alt="avatar" className="h-full w-full object-cover" />
             </div>
             <span className="text-base md:text-xl font-medium text-grey-900">{name}</span>
@@ -103,7 +103,7 @@ export const MetricsCard = () => {
               </div>
             )}
           </div>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-3.5 md:gap-6">
             {metricsData.map((metric, index) => (
               <MetricBox
                 key={index}

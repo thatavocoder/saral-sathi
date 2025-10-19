@@ -35,7 +35,9 @@ export const MyCommissionCard = () => {
     <Card>
       <CardHeader className="gap-0">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-lg font-medium text-card-foreground">My Commission</CardTitle>
+          <CardTitle className="text-base md:text-lg font-medium text-card-foreground">
+            My Commission
+          </CardTitle>
           <div className="text-sm font-normal text-foreground">20% Commission</div>
         </div>
       </CardHeader>

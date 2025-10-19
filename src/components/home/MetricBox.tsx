@@ -15,7 +15,7 @@ export const MetricBox = ({
   bgClassName = 'bg-destructive-light',
 }: MetricBoxProps) => {
   return (
-    <div className="border rounded-lg p-3 md:p-3.75 flex items-center gap-1 md:pr-6">
+    <div className="border rounded md:rounded-lg p-3 md:p-3.75 flex items-center gap-1 md:pr-6">
       <div
         className={cn(
           'rounded-full h-9.5 md:h-13.5 w-9.5 md:w-13.5 flex items-center justify-center flex-shrink-0',
