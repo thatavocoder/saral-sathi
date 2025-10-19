@@ -40,17 +40,17 @@ export const LinksAndCodesCard = () => {
   }
 
   return (
-    <Card className="gap-0 md:gap-0 py-0 md:py-0">
-      <CardHeader className="border-b py-4 md:py-6 gap-0">
-        <CardTitle className="text-base md:text-lg font-medium text-card-foreground-dark-grey">
+    <Card className="gap-0 lg:gap-0 py-0 lg:py-0">
+      <CardHeader className="border-b py-4 lg:py-6 gap-0">
+        <CardTitle className="text-base lg:text-lg font-medium text-card-foreground-dark-grey">
           My Links & Codes
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-0 md:p-0">
-        <div className="flex flex-col gap-2 p-4 md:p-6 border-b">
+      <CardContent className="p-0 lg:p-0">
+        <div className="flex flex-col gap-2 p-4 lg:p-6 border-b">
           <Label className="text-foreground font-normal">Tracking Link :</Label>
-          <div className="flex items-center justify-between rounded-xs md:rounded border border-dashed border-primary-border-light px-2 md:px-2.5 py-2">
-            <span className="text-primary font-[450] text-sm md:text-base">
+          <div className="flex items-center justify-between rounded-xs lg:rounded border border-dashed border-primary-border-light px-2 lg:px-2.5 py-2">
+            <span className="text-primary font-[450] text-sm lg:text-base">
               ds&durga.trysaral.com/kimiko
             </span>
             {copied === 'trackingLink' ? (
@@ -63,10 +63,10 @@ export const LinksAndCodesCard = () => {
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-2 p-4 md:p-6">
+        <div className="flex flex-col gap-2 p-4 lg:p-6">
           <Label className="text-foreground font-normal">Coupon Code :</Label>
           {isEditing ? (
-            <div className="flex items-center gap-2 h-9.5 md:h-10.5">
+            <div className="flex items-center gap-2 h-9.5 lg:h-10.5">
               <Input
                 type="text"
                 value={inputValue}
@@ -75,7 +75,7 @@ export const LinksAndCodesCard = () => {
               />
               <Button
                 onClick={handleSave}
-                className="h-6 md:h-8 w-4 md:w-6"
+                className="h-6 lg:h-8 w-4 lg:w-6"
                 size="icon"
                 variant="ghost"
               >
@@ -84,7 +84,7 @@ export const LinksAndCodesCard = () => {
               </Button>
               <Button
                 onClick={handleCancel}
-                className="h-6 md:h-8 w-4 md:w-8"
+                className="h-6 lg:h-8 w-4 lg:w-8"
                 size="icon"
                 variant="ghost"
               >
@@ -94,8 +94,8 @@ export const LinksAndCodesCard = () => {
             </div>
           ) : (
             <div className="flex items-center gap-2">
-              <div className="w-fit flex items-center justify-between rounded-xs md:rounded border border-dashed border-primary-border-light px-2 md:px-2.5 py-2 gap-2">
-                <span className="text-primary font-[450] text-sm md:text-base">{couponCode}</span>
+              <div className="w-fit flex items-center justify-between rounded-xs lg:rounded border border-dashed border-primary-border-light px-2 lg:px-2.5 py-2 gap-2">
+                <span className="text-primary font-[450] text-sm lg:text-base">{couponCode}</span>
                 {copied === 'couponCode' ? (
                   <CheckIcon className="h-5 w-5 text-primary" />
                 ) : (
@@ -106,7 +106,7 @@ export const LinksAndCodesCard = () => {
                 )}
               </div>
               <EditIcon
-                className="h-6 w-6 md:h-5 md:w-5 text-card-foreground cursor-pointer"
+                className="h-6 w-6 lg:h-5 lg:w-5 text-card-foreground cursor-pointer"
                 onClick={handleEdit}
               />
             </div>
