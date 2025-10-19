@@ -11,7 +11,7 @@ export const HomePage = () => {
           <MyCommissionCard />
           <LinksAndCodesCard />
         </div>
-        <div className="flex flex-shrink-0 flex-col gap-6">
+        <div className="flex flex-shrink-0 flex-col gap-6 justify-between">
           <MetricsCard />
           <PotentialEarningsCard />
         </div>

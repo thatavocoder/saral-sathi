@@ -5,8 +5,8 @@ import InfoIcon from '@/assets/icons/info.svg?react'
 export const PotentialEarningsCard = () => {
   return (
     <Card className="gap-0 py-0">
-      <CardContent className="p-6 flex flex-col gap-6">
-        <div className="flex gap-2 items-start">
+      <CardContent className="p-6 flex flex-col gap-7.5">
+        <div className="flex gap-2 items-start justify-between">
           <div className="flex flex-col gap-1">
             <span className="text-lg font-medium flex items-center gap-2 text-card-foreground">
               Potential Earnings <InfoIcon className="h-4 w-4" />

@@ -20,7 +20,12 @@
   --muted-foreground: #616161;
   --accent: #f7f7f7;
   --accent-foreground: #343434;
-  --destructive: #e5484d;
+  --destructive: #dc2626;
+  --destructive-light: #fef2f2;
+  --info: #3b82f6;
+  --info-light: #eff6ff;
+  --warning: #f97316;
+  --warning-light: #fff7ed;
   --border: #e0e0e0;
   --input: #e8e8e8;
   --ring: #b5b5b5;
@@ -45,6 +50,10 @@
   --disabled: #bdbdbd;
   --commission-card-foreground: #eeeeee;
   --grey-300: #f4f7fe;
+  --grey-900: #1b2559;
+  --metrics-text: #202224;
+  --yellow-500: #eab308;
+  --yellow-50: #fefce8;
 }
 
 @theme inline {
@@ -68,6 +77,11 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-destructive-light: var(--destructive-light);
+  --color-info: var(--info);
+  --color-info-light: var(--info-light);
+  --color-warning: var(--warning);
+  --color-warning-light: var(--warning-light);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -91,6 +105,8 @@
   --color-disabled: var(--disabled);
   --color-commission-card-foreground: var(--commission-card-foreground);
   --color-grey-300: var(--grey-300);
+  --color-grey-900: var(--grey-900);
+  --color-yellow-50: var(--yellow-50);
 }
 
 @layer base {
