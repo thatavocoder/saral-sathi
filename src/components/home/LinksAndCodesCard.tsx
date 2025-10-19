@@ -40,13 +40,13 @@ export const LinksAndCodesCard = () => {
   }
 
   return (
-    <Card className="gap-0 py-0">
+    <Card className="gap-0 md:gap-0 py-0 md:py-0">
       <CardHeader className="border-b p-6 gap-0">
         <CardTitle className="text-lg font-medium text-card-foreground-dark-grey">
           My Links & Codes
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-0">
+      <CardContent className="p-0 md:p-0">
         <div className="flex flex-col gap-2 px-6 py-6 border-b">
           <Label className="text-foreground font-normal">Tracking Link :</Label>
           <div className="flex items-center justify-between rounded border border-dashed border-primary-border-light gap-33 px-2.5 py-2">

@@ -46,7 +46,10 @@
   --select-border: #e0e0e0;
   --primary-border-light: #dfcdfa;
   --font-xl: 1.375rem;
+  --font-sm: 0.75rem;
+  --font-xs-sm: 0.625rem;
   --font-xs: 0.575rem;
+  --font-2xs: 0.5rem;
   --disabled: #bdbdbd;
   --commission-card-foreground: #eeeeee;
   --grey-300: #f4f7fe;
@@ -102,6 +105,8 @@
   --color-select-border: var(--select-border);
   --color-primary-border-light: var(--primary-border-light);
   --font-xl: var(--font-xl);
+  --font-sm: var(--font-sm);
+  --font-xs: var(--font-xs);
   --color-disabled: var(--disabled);
   --color-commission-card-foreground: var(--commission-card-foreground);
   --color-grey-300: var(--grey-300);

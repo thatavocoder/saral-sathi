@@ -13,8 +13,8 @@ export const PotentialEarningsCard = () => {
   const potentialEarnings = Math.round(sliderValue * earningsPerPost)
 
   return (
-    <Card className="gap-0 py-0">
-      <CardContent className="p-6 flex flex-col gap-7.5">
+    <Card className="gap-0 md:gap-0 py-0 md:py-0">
+      <CardContent className="p-6 md:p-6 flex flex-col gap-7.5">
         <div className="flex gap-2 items-start justify-between">
           <div className="flex flex-col gap-1">
             <span className="text-lg font-medium flex items-center gap-2 text-card-foreground">
