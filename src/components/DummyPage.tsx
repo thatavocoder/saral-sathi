@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from './ui/button'
+import { ROUTE_PATHS } from '../router/route-paths'
 
-const funLines = [
+const excuses = [
   'Still putting this together. Thanks for your patience.',
   'Almost there. Tightening a few loose screws.',
   'Good things take time. This one is in the oven.',
@@ -9,12 +11,12 @@ const funLines = [
   'Ship it? Soon. Snacks? Now.',
 ]
 
-function getRandomFunLine() {
-  return funLines[Math.floor(Math.random() * funLines.length)]
+function getRandomExcuse() {
+  return excuses[Math.floor(Math.random() * excuses.length)]
 }
 
 export default function DummyPage() {
-  const [tagline, setTagline] = useState(getRandomFunLine())
+  const [tagline, setTagline] = useState(getRandomExcuse())
 
   return (
     <section className="relative w-full">
@@ -27,19 +29,12 @@ export default function DummyPage() {
           </p>
           <p className="mt-3 text-sm">{tagline}</p>
           <div className="mt-5 flex justify-center gap-3">
-            <Link
-              to="/"
-              className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
-            >
-              Go Home
-            </Link>
-            <button
-              type="button"
-              onClick={() => setTagline(getRandomFunLine())}
-              className="inline-flex items-center justify-center rounded-md border bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
-            >
+            <Button asChild>
+              <Link to={ROUTE_PATHS.HOME}>Go Home</Link>
+            </Button>
+            <Button variant="outline" onClick={() => setTagline(getRandomExcuse())}>
               New excuse
-            </button>
+            </Button>
           </div>
         </div>
       </div>
