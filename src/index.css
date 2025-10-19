@@ -41,7 +41,10 @@
   --select-border: #e0e0e0;
   --primary-border-light: #dfcdfa;
   --font-xl: 1.375rem;
+  --font-xs: 0.575rem;
   --disabled: #bdbdbd;
+  --commission-card-foreground: #eeeeee;
+  --grey-300: #f4f7fe;
 }
 
 @theme inline {
@@ -86,6 +89,8 @@
   --color-primary-border-light: var(--primary-border-light);
   --font-xl: var(--font-xl);
   --color-disabled: var(--disabled);
+  --color-commission-card-foreground: var(--commission-card-foreground);
+  --color-grey-300: var(--grey-300);
 }
 
 @layer base {
