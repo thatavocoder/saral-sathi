@@ -19,7 +19,7 @@ const navLinks = [
 export const BottomBar = () => {
   return (
     <footer className="fixed bottom-0 left-0 right-0 bg-card px-7 py-6">
-      <nav className="flex items-center justify-around md:w-3/4 md:mx-auto">
+      <nav className="flex items-center justify-between md:w-3/4 md:mx-auto">
         {navLinks.map(({ to, icon: Icon }) => (
           <NavLink
             key={to}
