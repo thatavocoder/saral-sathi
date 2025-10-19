@@ -18,31 +18,32 @@ import { setEmail } from '@/store/slices/authSlice'
 export const MetricsCard = () => {
   const dispatch = useAppDispatch()
   const email = useAppSelector((state) => state.auth.email)
+  const name = useAppSelector((state) => state.auth.name)
   const metrics = useAppSelector((state) => state.metrics)
   const [isEditing, setIsEditing] = useState(false)
   const [inputValue, setInputValue] = useState(email || '')
 
   const metricsData = [
     {
-      icon: <PeopleIcon className="h-6 w-6 text-destructive" />,
+      icon: <PeopleIcon className="h-4 w-4 md:h-6 md:w-6 text-destructive" />,
       value: metrics.visitors,
       label: 'Visitors',
       bgClassName: 'bg-destructive-light',
     },
     {
-      icon: <GalleryIcon className="h-6 w-6 text-info" />,
+      icon: <GalleryIcon className="h-4 w-4 md:h-6 md:w-6 text-info" />,
       value: metrics.posts,
       label: 'Posts',
       bgClassName: 'bg-info-light',
     },
     {
-      icon: <DollarIcon className="h-6 w-6 text-warning" />,
+      icon: <DollarIcon className="h-4 w-4 md:h-6 md:w-6 text-warning" />,
       value: metrics.revenue,
       label: 'Revenue',
       bgClassName: 'bg-warning-light',
     },
     {
-      icon: <BagHeartIcon className="h-6 w-6 text-yellow-500" />,
+      icon: <BagHeartIcon className="h-4 w-4 md:h-6 md:w-6 text-yellow-500" />,
       value: metrics.orders,
       label: 'Orders',
       bgClassName: 'bg-yellow-50',
@@ -71,30 +72,30 @@ export const MetricsCard = () => {
             <div className="rounded-full h-31 w-31 bg-grey-300">
               <img src={avatarImg} alt="avatar" className="h-full w-full object-cover" />
             </div>
-            <span className="text-xl font-medium text-grey-900">Jen Nelson</span>
+            <span className="text-base md:text-xl font-medium text-grey-900">{name}</span>
             {isEditing ? (
-              <div className="flex items-center gap-2 w-full max-h-6">
-                <EmailIcon className="h-5 w-5 text-card-foreground flex-shrink-0" />
+              <div className="flex items-center gap-2 w-full max-h-5 md:max-h-6">
+                <EmailIcon className="h-3.5 w-3.5 md:h-5 md:w-5 text-card-foreground flex-shrink-0" />
                 <Input
                   type="email"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   name="email"
-                  className="w-full h-7"
+                  className="w-full h-6 md:h-7 text-sm md:text-base"
                 />
-                <Button onClick={handleSave} className="h-7" variant="ghost">
+                <Button onClick={handleSave} className="h-6 md:h-7" variant="ghost">
                   <span className="sr-only">Save</span>
-                  <CheckIcon className="h-4 w-4 text-primary" />
+                  <CheckIcon className="h-3.5 w-3.5 md:h-4 md:w-4 text-primary" />
                 </Button>
-                <Button onClick={handleCancel} className="h-7" variant="ghost">
+                <Button onClick={handleCancel} className="h-6 md:h-7" variant="ghost">
                   <span className="sr-only">Cancel</span>
-                  <XIcon className="h-4 w-4 text-destructive" />
+                  <XIcon className="h-3.5 w-3.5 md:h-4 md:w-4 text-destructive" />
                 </Button>
               </div>
             ) : (
               <div className="flex items-center justify-center gap-2">
-                <EmailIcon className="h-5 w-5 text-card-foreground" />
-                <span className="text-base font-normal text-foreground">{email}</span>
+                <EmailIcon className="h-3.5 w-3.5 md:h-5 md:w-5 text-card-foreground" />
+                <span className="text-sm md:text-base font-normal text-foreground">{email}</span>
                 <EditIcon
                   className="h-5 w-5 text-card-foreground cursor-pointer"
                   onClick={handleEdit}

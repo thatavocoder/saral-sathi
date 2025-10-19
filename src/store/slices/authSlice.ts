@@ -11,14 +11,16 @@ interface AuthState {
   email: string | null
   paymentEmail: string | null
   couponCode: string | null
+  name: string | null
 }
 
 const initialState: AuthState = {
   token: sessionStorage.getItem(TOKEN_KEY),
   isAuthenticated: !!sessionStorage.getItem(TOKEN_KEY),
-  email: sessionStorage.getItem(EMAIL_KEY) || 'jennelsonfitness@gmail.com',
+  email: 'jennelsonfitness@gmail.com',
   paymentEmail: sessionStorage.getItem(PAYMENT_EMAIL_KEY),
   couponCode: sessionStorage.getItem(COUPON_CODE_KEY) || 'KIMAYA10',
+  name: 'Jen Nelson',
 }
 
 const authSlice = createSlice({
@@ -41,6 +43,7 @@ const authSlice = createSlice({
       state.email = null
       state.paymentEmail = null
       state.couponCode = null
+      state.name = null
       state.isAuthenticated = false
     },
     setEmail: (state, action: PayloadAction<string>) => {
