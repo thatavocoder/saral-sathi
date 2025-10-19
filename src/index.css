@@ -40,6 +40,8 @@
   --select-foreground: #212121;
   --select-border: #e0e0e0;
   --primary-border-light: #dfcdfa;
+  --font-xl: 1.375rem;
+  --disabled: #bdbdbd;
 }
 
 @theme inline {
@@ -82,6 +84,8 @@
   --color-select-foreground: var(--select-foreground);
   --color-select-border: var(--select-border);
   --color-primary-border-light: var(--primary-border-light);
+  --font-xl: var(--font-xl);
+  --color-disabled: var(--disabled);
 }
 
 @layer base {
