@@ -8,19 +8,22 @@ import CheckIcon from '@/assets/icons/check.svg?react'
 import XIcon from '@/assets/icons/x.svg?react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { setPaymentEmail } from '@/store/slices/authSlice'
 
 export const MyCommissionCard = () => {
+  const dispatch = useAppDispatch()
+  const paymentEmail = useAppSelector((state) => state.auth.paymentEmail)
   const [isEditing, setIsEditing] = useState(false)
-  const [email, setEmail] = useState('N/A')
-  const [inputValue, setInputValue] = useState(email)
+  const [inputValue, setInputValue] = useState(paymentEmail || 'N/A')
 
   const handleEdit = () => {
-    setInputValue(email)
+    setInputValue(paymentEmail || 'N/A')
     setIsEditing(true)
   }
 
   const handleSave = () => {
-    setEmail(inputValue)
+    dispatch(setPaymentEmail(inputValue))
     setIsEditing(false)
   }
 
@@ -100,7 +103,7 @@ export const MyCommissionCard = () => {
                 <TIcon className="h-5 w-5" />
                 <span className="text-base font-normal text-foreground">Payment Email: </span>
                 <span className="text-base font-normal text-card-foreground-dark-grey">
-                  {email}
+                  {paymentEmail || 'N/A'}
                 </span>
               </div>
               <div className="flex items-center gap-2">

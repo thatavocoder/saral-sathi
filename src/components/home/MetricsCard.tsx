@@ -12,6 +12,8 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import CheckIcon from '@/assets/icons/check.svg?react'
 import XIcon from '@/assets/icons/x.svg?react'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { setEmail } from '@/store/slices/authSlice'
 
 const metricsData = [
   {
@@ -41,17 +43,18 @@ const metricsData = [
 ]
 
 export const MetricsCard = () => {
+  const dispatch = useAppDispatch()
+  const email = useAppSelector((state) => state.auth.email)
   const [isEditing, setIsEditing] = useState(false)
-  const [email, setEmail] = useState('jennelsonfitness@gmail.com')
-  const [inputValue, setInputValue] = useState(email)
+  const [inputValue, setInputValue] = useState(email || '')
 
   const handleEdit = () => {
-    setInputValue(email)
+    setInputValue(email || '')
     setIsEditing(true)
   }
 
   const handleSave = () => {
-    setEmail(inputValue)
+    dispatch(setEmail(inputValue))
     setIsEditing(false)
   }
 
@@ -69,7 +72,7 @@ export const MetricsCard = () => {
             </div>
             <span className="text-xl font-medium text-grey-900">Jen Nelson</span>
             {isEditing ? (
-              <div className="flex items-center gap-2 w-full">
+              <div className="flex items-center gap-2 w-full max-h-6">
                 <EmailIcon className="h-5 w-5 text-card-foreground flex-shrink-0" />
                 <Input
                   type="email"

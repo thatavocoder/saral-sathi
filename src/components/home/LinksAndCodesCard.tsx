@@ -7,12 +7,15 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import XIcon from '@/assets/icons/x.svg?react'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { setCouponCode } from '@/store/slices/authSlice'
 
 export const LinksAndCodesCard = () => {
+  const dispatch = useAppDispatch()
+  const couponCode = useAppSelector((state) => state.auth.couponCode)
   const [copied, setCopied] = useState<string | null>(null)
   const [isEditing, setIsEditing] = useState(false)
-  const [couponCode, setCouponCode] = useState('KIMAYA10')
-  const [inputValue, setInputValue] = useState(couponCode)
+  const [inputValue, setInputValue] = useState(couponCode || '')
 
   const handleCopy = (text: string, id: string) => {
     navigator.clipboard.writeText(text)
@@ -23,12 +26,12 @@ export const LinksAndCodesCard = () => {
   }
 
   const handleEdit = () => {
-    setInputValue(couponCode)
+    setInputValue(couponCode || '')
     setIsEditing(true)
   }
 
   const handleSave = () => {
-    setCouponCode(inputValue)
+    dispatch(setCouponCode(inputValue))
     setIsEditing(false)
   }
 
@@ -61,13 +64,12 @@ export const LinksAndCodesCard = () => {
         <div className="flex flex-col gap-2 px-6 py-6">
           <Label className="text-foreground font-normal">Coupon Code :</Label>
           {isEditing ? (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 h-10.5">
               <Input
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 name="coupon-code"
-                className="h-11"
               />
               <Button onClick={handleSave} size="icon" variant="ghost">
                 <span className="sr-only">Save</span>
@@ -87,7 +89,7 @@ export const LinksAndCodesCard = () => {
                 ) : (
                   <CopyIcon
                     className="h-5 w-5 text-primary cursor-pointer"
-                    onClick={() => handleCopy(couponCode, 'couponCode')}
+                    onClick={() => handleCopy(couponCode || '', 'couponCode')}
                   />
                 )}
               </div>
