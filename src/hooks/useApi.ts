@@ -1,4 +1,4 @@
-import { useAuth } from '@/contexts/AuthContext'
+import { useAppSelector } from '@/store/hooks'
 
 const BASE_URL = 'https://dev-api.mysathi.io'
 
@@ -13,7 +13,7 @@ type ApiHook = {
 }
 
 export const useApi = (): ApiHook => {
-  const { token } = useAuth()
+  const { token } = useAppSelector((state) => state.auth)
 
   const post = async <T, U>(endpoint: string, data: U): Promise<T> => {
     const headers: HeadersInit = {
