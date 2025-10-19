@@ -30,7 +30,7 @@ export const useApi = (): ApiHook => {
       body: JSON.stringify(data),
     })
 
-    const jsonResponse = await response.json()
+    const jsonResponse: ApiResponse<T> = await response.json()
 
     if (!response.ok || (jsonResponse.status && jsonResponse.status !== 'success')) {
       const errorMessage =
