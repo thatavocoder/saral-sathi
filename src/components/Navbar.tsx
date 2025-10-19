@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import HomeIcon from '../assets/icons/home.svg?react'
 import AlbumIcon from '../assets/icons/album.svg?react'
@@ -27,6 +28,7 @@ const navLinks = [
 ]
 
 export const Navbar = () => {
+  const [selectedValue, setSelectedValue] = useState('all-time')
   return (
     <header className="flex items-center justify-between py-2.5 px-6 bg-white border-b">
       <div className="flex items-center gap-2">
@@ -49,7 +51,7 @@ export const Navbar = () => {
         ))}
       </nav>
       <div className="flex items-center gap-6">
-        <Select value="all-time">
+        <Select value={selectedValue} onValueChange={setSelectedValue}>
           <SelectTrigger className="font-medium data-[placeholder]:text-select-foreground [&_svg:not([class*='text-'])]:text-select-foreground border-select-border rounded-sm px-2.5 data-[size=default]:h-10">
             <div className="flex items-center gap-1 text-select-foreground">
               <CalendarIcon className="h-4 w-4 " />
