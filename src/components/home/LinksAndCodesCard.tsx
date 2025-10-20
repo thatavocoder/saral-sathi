@@ -49,7 +49,7 @@ export const LinksAndCodesCard = () => {
       <CardContent className="p-0 lg:p-0">
         <div className="flex flex-col gap-2 p-4 lg:p-6 border-b">
           <Label className="text-foreground font-normal">Tracking Link :</Label>
-          <div className="flex items-center justify-between rounded-xs lg:rounded border border-dashed border-primary-border-light px-2 lg:px-2.5 py-2">
+          <div className="flex items-center justify-between rounded-xs lg:rounded border border-dashed border-primary-border-light px-2 lg:px-2.5 py-2 lg:gap-33">
             <span className="text-primary font-[450] text-sm lg:text-base">
               ds&durga.trysaral.com/kimiko
             </span>

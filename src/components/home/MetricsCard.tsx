@@ -74,7 +74,7 @@ export const MetricsCard = () => {
             </div>
             <span className="text-base lg:text-xl font-medium text-grey-900">{name}</span>
             {isEditing ? (
-              <div className="flex items-center gap-2 w-full max-h-5 lg:max-h-6 mt-1">
+              <div className="flex items-center gap-2 w-full max-h-5 lg:max-h-6">
                 <EmailIcon className="h-3.5 w-3.5 lg:h-5 lg:w-5 text-card-foreground flex-shrink-0" />
                 <Input
                   type="email"
