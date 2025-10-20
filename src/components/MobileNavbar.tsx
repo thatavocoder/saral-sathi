@@ -14,6 +14,14 @@ import {
   DrawerTrigger,
 } from './ui/drawer'
 import { Button } from './ui/button'
+import profileImg from '../assets/profile-pic.png'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from './ui/dropdown-menu'
+import { logout } from '@/store/slices/authSlice'
 
 const timeRangeOptions = [
   { value: TimeRange.AllTime, label: 'All time' },
@@ -28,6 +36,10 @@ export const MobileNavbar = () => {
 
   const handleTimeRangeChange = (value: string) => {
     dispatch(setTimeRange(value as TimeRange))
+  }
+
+  const handleLogout = () => {
+    dispatch(logout())
   }
 
   const pathName = useLocation().pathname.split('/').pop() || ''
@@ -63,10 +75,23 @@ export const MobileNavbar = () => {
           </DrawerContent>
         </Drawer>
 
-        <Avatar className="size-6">
-          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Avatar className="size-6 cursor-pointer">
+              <AvatarImage src={profileImg} alt="@shadcn" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem
+              onClick={handleLogout}
+              className="cursor-pointer"
+              variant="destructive"
+            >
+              Logout
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </header>
   )

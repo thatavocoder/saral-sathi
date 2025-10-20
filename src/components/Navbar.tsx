@@ -26,6 +26,7 @@ import {
   SelectValue,
 } from './ui/select'
 import { logout } from '@/store/slices/authSlice'
+import profileImg from '../assets/profile-pic.png'
 
 const navLinks = [
   { to: '/', label: 'Home', icon: HomeIcon },
@@ -98,7 +99,7 @@ export const Navbar = () => {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Avatar className="size-9 cursor-pointer">
-              <AvatarImage src={'/src/assets/profile-pic.png'} alt="@shadcn" />
+              <AvatarImage src={profileImg} alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
