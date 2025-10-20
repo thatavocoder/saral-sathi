@@ -11,20 +11,29 @@ import { Button } from '@/components/ui/button'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { setPaymentEmail } from '@/store/slices/authSlice'
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 export const MyCommissionCard = () => {
   const dispatch = useAppDispatch()
   const paymentEmail = useAppSelector((state) => state.auth.paymentEmail)
   const [isEditing, setIsEditing] = useState(false)
   const [inputValue, setInputValue] = useState(paymentEmail || 'N/A')
+  const [error, setError] = useState<string | null>(null)
 
   const handleEdit = () => {
     setInputValue(paymentEmail || 'N/A')
     setIsEditing(true)
+    setError(null)
   }
 
   const handleSave = () => {
+    if (!emailRegex.test(inputValue)) {
+      setError('Invalid email address')
+      return
+    }
     dispatch(setPaymentEmail(inputValue))
     setIsEditing(false)
+    setError(null)
   }
 
   const handleCancel = () => {
@@ -80,30 +89,33 @@ export const MyCommissionCard = () => {
           className={`flex border rounded-xs lg:rounded ${isEditing ? 'p-1' : 'p-2'} w-full justify-between items-center`}
         >
           {isEditing ? (
-            <div className="flex items-center gap-1 p-1 lg:p-0">
-              <div className="flex items-center gap-1">
-                <TIcon className="h-3.5 w-3.5 lg:h-5 lg:w-5 flex-shrink-0" />
-                <span className="text-xs lg:text-base font-normal text-foreground whitespace-nowrap">
-                  Payment Email:{' '}
-                </span>
-                <Input
-                  type="email"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  name="payment-email"
-                  className="h-6 lg:h-8 text-xs lg:text-base"
-                />
+            <div className="flex flex-col w-full">
+              <div className="flex items-center gap-1 p-1 lg:p-0">
+                <div className="flex items-center gap-1">
+                  <TIcon className="h-3.5 w-3.5 lg:h-5 lg:w-5 flex-shrink-0" />
+                  <span className="text-xs lg:text-base font-normal text-foreground whitespace-nowrap">
+                    Payment Email:{' '}
+                  </span>
+                  <Input
+                    type="email"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    name="payment-email"
+                    className="h-6 lg:h-8 text-xs lg:text-base"
+                  />
+                </div>
+                <div className="flex items-center gap-1">
+                  <Button onClick={handleSave} className="h-6 lg:h-8 w-4 lg:w-6" variant="ghost">
+                    <span className="sr-only">Save</span>
+                    <CheckIcon className="h-3.5 w-3.5 lg:h-4 lg:w-4 text-primary" />
+                  </Button>
+                  <Button onClick={handleCancel} className="h-6 lg:h-8 w-4 lg:w-8" variant="ghost">
+                    <span className="sr-only">Cancel</span>
+                    <XIcon className="h-3.5 w-3.5 lg:h-4 lg:w-4 text-destructive" />
+                  </Button>
+                </div>
               </div>
-              <div className="flex items-center gap-1">
-                <Button onClick={handleSave} className="h-6 lg:h-8 w-4 lg:w-6" variant="ghost">
-                  <span className="sr-only">Save</span>
-                  <CheckIcon className="h-3.5 w-3.5 lg:h-4 lg:w-4 text-primary" />
-                </Button>
-                <Button onClick={handleCancel} className="h-6 lg:h-8 w-4 lg:w-8" variant="ghost">
-                  <span className="sr-only">Cancel</span>
-                  <XIcon className="h-3.5 w-3.5 lg:h-4 lg:w-4 text-destructive" />
-                </Button>
-              </div>
+              {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
             </div>
           ) : (
             <>
